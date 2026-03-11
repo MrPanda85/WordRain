@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build web app
+        run: npx expo export --platform web
+
+      - name: Inject PWA meta into index.html
+        run: |
+          sed -i 's|<link rel="icon" href="/WordRain/favicon.ico" />|<link rel="icon" href="/WordRain/favicon.ico" />\n  <link rel="manifest" href="/WordRain/manifest.json" />\n  <meta name="apple-mobile-web-app-capable" content="yes" />\n  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />\n  <meta name="apple-mobile-web-app-title" content="Word Rain" />\n  <link rel="apple-touch-icon" href="/WordRain/icon-192.png" />\n  <meta name="theme-color" content="#1a1a2e" />|' dist/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

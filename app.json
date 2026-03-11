@@ -1,22 +1,25 @@
 {
   "expo": {
-    "name": "GlosApp",
+    "name": "Word Rain",
     "slug": "GlosApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "owner": "mrpanda85",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1a1a2e"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mrpanda85.wordrain"
     },
     "android": {
+      "package": "com.mrpanda85.wordrain",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#1a1a2e",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -24,6 +27,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "experiments": {
+      "baseUrl": "/WordRain"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c8d93ab4-34a6-4589-afa2-c4604ef34398"
+      }
     }
   }
 }
