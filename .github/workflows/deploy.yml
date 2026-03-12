@@ -28,6 +28,9 @@ jobs:
         run: |
           sed -i 's|<link rel="icon" href="/WordRain/favicon.ico" />|<link rel="icon" href="/WordRain/favicon.ico" />\n  <link rel="manifest" href="/WordRain/manifest.json" />\n  <meta name="apple-mobile-web-app-capable" content="yes" />\n  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />\n  <meta name="apple-mobile-web-app-title" content="Word Rain" />\n  <link rel="apple-touch-icon" href="/WordRain/icon-192.png" />\n  <meta name="theme-color" content="#1a1a2e" />|' dist/index.html
 
+      - name: Inject admin token
+        run: sed -i "s|__ADMIN_TOKEN__|${{ secrets.ADMIN_TOKEN }}|g" dist/admin.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

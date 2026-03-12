@@ -13,140 +13,143 @@
       min-height: 100vh;
       padding: 24px 16px;
     }
-    h1 {
-      color: #FFD93D;
-      font-size: 28px;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 4px;
-    }
-    .subtitle {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 28px;
-    }
-    .back-link {
-      display: block;
-      text-align: center;
-      color: #4ECDC4;
-      text-decoration: none;
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-    .back-link:hover { text-decoration: underline; }
 
-    /* Add form */
-    .add-form {
-      background: #16213e;
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 24px;
+    /* ── Login ── */
+    #loginScreen {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      gap: 16px;
+    }
+    .login-box {
+      background: #16213e;
+      border-radius: 20px;
+      padding: 36px 28px;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .login-title { color: #FFD93D; font-size: 26px; font-weight: 900; text-align: center; margin-bottom: 8px; }
+    .login-input {
+      background: #0f3460;
+      border: 1px solid #2a2a4e;
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 17px;
+      outline: none;
+      width: 100%;
+    }
+    .login-input:focus { border-color: #4ECDC4; }
+    .login-btn {
+      background: #FF6B6B;
+      color: #fff;
+      font-weight: 900;
+      font-size: 17px;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+    .login-btn:hover { opacity: .9; }
+    .login-error { color: #FF6B6B; font-size: 14px; text-align: center; min-height: 18px; }
+
+    /* ── Admin ── */
+    #adminScreen { display: none; }
+    h1 { color: #FFD93D; font-size: 28px; font-weight: 900; text-align: center; margin-bottom: 4px; }
+    .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 28px; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .back-link { color: #4ECDC4; text-decoration: none; font-size: 15px; }
+    .back-link:hover { text-decoration: underline; }
+    .logout-btn { background: none; border: 1px solid #444; border-radius: 8px; color: #888; font-size: 13px; padding: 6px 12px; cursor: pointer; }
+    .logout-btn:hover { border-color: #FF6B6B; color: #FF6B6B; }
+
+    .add-form {
+      background: #16213e; border-radius: 14px; padding: 18px;
+      margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px;
     }
     .add-form h2 { color: #4ECDC4; font-size: 16px; margin-bottom: 4px; }
     .input-row { display: flex; gap: 10px; }
     input {
-      flex: 1;
-      background: #0f3460;
-      border: 1px solid #2a2a4e;
-      border-radius: 10px;
-      padding: 12px 14px;
-      color: #fff;
-      font-size: 16px;
-      outline: none;
+      flex: 1; background: #0f3460; border: 1px solid #2a2a4e;
+      border-radius: 10px; padding: 12px 14px; color: #fff; font-size: 16px; outline: none;
     }
     input:focus { border-color: #4ECDC4; }
     input::placeholder { color: #555; }
     .add-btn {
-      background: #6BCB77;
-      color: #fff;
-      font-weight: 900;
-      font-size: 16px;
-      border: none;
-      border-radius: 12px;
-      padding: 14px;
-      cursor: pointer;
-      transition: opacity .15s;
+      background: #6BCB77; color: #fff; font-weight: 900; font-size: 16px;
+      border: none; border-radius: 12px; padding: 14px; cursor: pointer;
     }
     .add-btn:hover { opacity: .85; }
     .error { color: #FF6B6B; font-size: 14px; min-height: 18px; }
 
-    /* Word list */
-    .list-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
+    .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     .list-header h2 { color: #FFD93D; font-size: 18px; }
     .count { color: #666; font-size: 14px; }
-
     .word-list { display: flex; flex-direction: column; gap: 8px; }
     .word-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #16213e;
-      border-radius: 10px;
-      padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #16213e; border-radius: 10px; padding: 12px 16px;
     }
     .word-en { color: #4ECDC4; font-weight: bold; font-size: 16px; }
     .word-arrow { color: #555; margin: 0 10px; }
     .word-sv { color: #FFD93D; font-size: 16px; }
-    .del-btn {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      padding: 4px 8px;
-      border-radius: 6px;
-      transition: background .15s;
-    }
+    .del-btn { background: none; border: none; font-size: 20px; cursor: pointer; padding: 4px 8px; border-radius: 6px; }
     .del-btn:hover { background: rgba(255,107,107,.2); }
     .empty { color: #555; text-align: center; padding: 24px; font-size: 15px; }
 
-    /* Toast */
     .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #6BCB77;
-      color: #fff;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-size: 15px;
-      opacity: 0;
-      transition: opacity .3s;
-      pointer-events: none;
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: #6BCB77; color: #fff; font-weight: bold;
+      padding: 12px 24px; border-radius: 50px; font-size: 15px;
+      opacity: 0; transition: opacity .3s; pointer-events: none;
     }
     .toast.show { opacity: 1; }
   </style>
 </head>
 <body>
-  <a class="back-link" href="/">← Tillbaka till spelet</a>
-  <h1>⚙️ Hantera glosor</h1>
-  <p class="subtitle">Ändringar sparas direkt i appen</p>
 
-  <div class="add-form">
-    <h2>Lägg till ny glosa</h2>
-    <div class="input-row">
-      <input id="enInput" placeholder="Engelska (t.ex. apple)" autocomplete="off" />
-      <input id="svInput" placeholder="Svenska (t.ex. äpple)" autocomplete="off" />
+  <!-- Login screen -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <div class="login-title">🔐 Word Rain Admin</div>
+      <input id="usernameInput" class="login-input" type="text" placeholder="Användarnamn" autocomplete="username" />
+      <input id="passwordInput" class="login-input" type="password" placeholder="Lösenord" autocomplete="current-password" />
+      <div class="login-error" id="loginError"></div>
+      <button class="login-btn" onclick="doLogin()">Logga in</button>
     </div>
-    <div class="error" id="error"></div>
-    <button class="add-btn" onclick="addWord()">+ Lägg till</button>
   </div>
 
-  <div class="list-header">
-    <h2>Alla glosor</h2>
-    <span class="count" id="count"></span>
+  <!-- Admin screen -->
+  <div id="adminScreen">
+    <div class="top-bar">
+      <a class="back-link" href="/">← Tillbaka till spelet</a>
+      <button class="logout-btn" onclick="doLogout()">Logga ut</button>
+    </div>
+    <h1>⚙️ Hantera glosor</h1>
+    <p class="subtitle">Ändringar sparas direkt i appen</p>
+
+    <div class="add-form">
+      <h2>Lägg till ny glosa</h2>
+      <div class="input-row">
+        <input id="enInput" placeholder="Engelska (t.ex. apple)" autocomplete="off" />
+        <input id="svInput" placeholder="Svenska (t.ex. äpple)" autocomplete="off" />
+      </div>
+      <div class="error" id="error"></div>
+      <button class="add-btn" onclick="addWord()">+ Lägg till</button>
+    </div>
+
+    <div class="list-header">
+      <h2>Alla glosor</h2>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="word-list" id="wordList"></div>
   </div>
-  <div class="word-list" id="wordList"></div>
 
   <div class="toast" id="toast"></div>
 
@@ -154,17 +157,48 @@
     const GIST_ID = '233d2800db917eb9e5e65f8f546e0bf5';
     const RAW_URL = 'https://gist.githubusercontent.com/MrPanda85/' + GIST_ID + '/raw/glosor.json';
     const API_URL = 'https://api.github.com/gists/' + GIST_ID;
+    const ADMIN_TOKEN = '__ADMIN_TOKEN__';
+    const AUTH_KEY = 'wordrain_auth';
+
     let words = [];
 
-    function getToken() {
-      let t = sessionStorage.getItem('gh_token');
-      if (!t) {
-        t = prompt('Ange din GitHub-token för att spara ändringar:');
-        if (t) sessionStorage.setItem('gh_token', t.trim());
-      }
-      return t;
+    // ── Auth ──────────────────────────────────────────────────────────────────
+    function isLoggedIn() {
+      return localStorage.getItem(AUTH_KEY) === 'yes';
     }
 
+    function doLogin() {
+      const u = document.getElementById('usernameInput').value.trim();
+      const p = document.getElementById('passwordInput').value.trim();
+      if (u === 'Pappa' && p === 'Lilly') {
+        localStorage.setItem(AUTH_KEY, 'yes');
+        showAdmin();
+      } else {
+        document.getElementById('loginError').textContent = 'Fel användarnamn eller lösenord.';
+      }
+    }
+
+    function doLogout() {
+      localStorage.removeItem(AUTH_KEY);
+      document.getElementById('adminScreen').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'flex';
+    }
+
+    function showAdmin() {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminScreen').style.display = 'block';
+      fetchWords();
+    }
+
+    // Enter key on login
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        if (!isLoggedIn()) doLogin();
+        else addWord();
+      }
+    });
+
+    // ── Words ─────────────────────────────────────────────────────────────────
     async function fetchWords() {
       try {
         const res = await fetch(RAW_URL + '?t=' + Date.now(), { cache: 'no-store' });
@@ -174,12 +208,10 @@
     }
 
     async function pushWords() {
-      const token = getToken();
-      if (!token) return;
       await fetch(API_URL, {
         method: 'PATCH',
         headers: {
-          'Authorization': 'Bearer ' + token,
+          'Authorization': 'Bearer ' + ADMIN_TOKEN,
           'Accept': 'application/vnd.github+json',
           'Content-Type': 'application/json',
         },
@@ -214,7 +246,7 @@
     }
 
     function esc(s) {
-      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
     async function addWord() {
@@ -240,9 +272,10 @@
       showToast('🗑️ ' + removed.en + ' borttagen');
     }
 
-    document.addEventListener('keydown', e => { if (e.key === 'Enter') addWord(); });
-
-    fetchWords();
+    // ── Init ──────────────────────────────────────────────────────────────────
+    if (isLoggedIn()) {
+      showAdmin();
+    }
   </script>
 </body>
 </html>
