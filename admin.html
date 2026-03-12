@@ -151,22 +151,39 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    const BLOB_URL = 'https://jsonblob.com/api/jsonBlob/019cddde-47dc-78f8-b72d-dcca077f55ba';
+    const GIST_ID = '233d2800db917eb9e5e65f8f546e0bf5';
+    const RAW_URL = 'https://gist.githubusercontent.com/MrPanda85/' + GIST_ID + '/raw/glosor.json';
+    const API_URL = 'https://api.github.com/gists/' + GIST_ID;
     let words = [];
+
+    function getToken() {
+      let t = sessionStorage.getItem('gh_token');
+      if (!t) {
+        t = prompt('Ange din GitHub-token för att spara ändringar:');
+        if (t) sessionStorage.setItem('gh_token', t.trim());
+      }
+      return t;
+    }
 
     async function fetchWords() {
       try {
-        const res = await fetch(BLOB_URL, { cache: 'no-store' });
+        const res = await fetch(RAW_URL + '?t=' + Date.now(), { cache: 'no-store' });
         words = await res.json();
       } catch { words = []; }
       render();
     }
 
     async function pushWords() {
-      await fetch(BLOB_URL, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(words),
+      const token = getToken();
+      if (!token) return;
+      await fetch(API_URL, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ files: { 'glosor.json': { content: JSON.stringify(words) } } }),
       });
     }
 
